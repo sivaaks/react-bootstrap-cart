@@ -29,7 +29,6 @@ function App(){
       },4000)
     }
     setCartItem(itemsInCart);
-    console.log(cart,cartItemsCount);
   }
 
   const removeFromCart=(item)=>{
@@ -57,8 +56,8 @@ function App(){
         <h4>Host Project</h4>
       </div>
       <div className= "cart-container" onClick={toggleShowCart}>
-        <div class="shopping-cart">
-          <img className="cart-icon" src={cartIcon}></img>
+        <div className="shopping-cart">
+          <img className="cart-icon" src={cartIcon} alt=""></img>
         </div>
         <div className="cart"> Cart
           <div className="cart-items">{cartItemsCount}</div>
@@ -71,9 +70,9 @@ function App(){
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        {cart.length<=0? 'Cart is empty':cart.map((item)=>{
+        {cart.length<=0? 'Cart is empty':cart.map((item,index)=>{
                 return(
-                  <div className="modal-cart">
+                  <div key={index} className="modal-cart">
                   <h5>{item}</h5>
                   <Button className="btn-cart-remove" onClick={()=>{removeFromCart(item)}} variant="danger" size="sm">Remove</Button>
                   </div>
@@ -86,81 +85,81 @@ function App(){
             </Modal.Footer>
       </Modal>
     </section>
-    <section class="pricing py-5">
-    <div class="container">
-    <div class="row">
+    <section className="pricing py-5">
+    <div className="container">
+    <div className="row">
      {/* <!-- Free Tier --> */}
-      <div class="col-lg-4">
-        <div class="card mb-5 mb-lg-0">
-          <div class="card-body">
-            <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
-            <h6 class="card-price text-center">$0<span class="period">/month</span></h6>
+      <div className="col-lg-4">
+        <div className="card mb-5 mb-lg-0">
+          <div className="card-body">
+            <h5 className="card-title text-muted text-uppercase text-center">Free</h5>
+            <h6 className="card-price text-center">$0<span className="period">/month</span></h6>
             <hr/>
-            <ul class="fa-ul">
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Single User</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>5GB Storage</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Unlimited
+            <ul className="fa-ul">
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Single User</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>5GB Storage</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Unlimited Public Projects</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Community Access</li>
+              <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>Unlimited
                 Private Projects</li>
-              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Dedicated
+              <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>Dedicated
                 Phone Support</li>
-              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Free Subdomain
+              <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>Free Subdomain
               </li>
-              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status
+              <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>Monthly Status
                 Reports</li>
             </ul>
-            <div class="d-grid">
-              <a onClick={()=>{handleCartItems(FREE)}} class="btn btn-primary text-uppercase">Add to cart</a>
+            <div className="d-grid">
+              <Button onClick={()=>{handleCartItems(FREE)}} className="btn btn-primary text-uppercase">Add to cart</Button>
             </div>
           </div>
         </div>
       </div>
       {/* <!-- Plus Tier --> */}
-      <div class="col-lg-4">
-        <div class="card mb-5 mb-lg-0">
-          <div class="card-body">
-            <h5 class="card-title text-muted text-uppercase text-center">Plus</h5>
-            <h6 class="card-price text-center">$9<span class="period">/month</span></h6>
+      <div className="col-lg-4">
+        <div className="card mb-5 mb-lg-0">
+          <div className="card-body">
+            <h5 className="card-title text-muted text-uppercase text-center">Plus</h5>
+            <h6 className="card-price text-center">$9<span className="period">/month</span></h6>
             <hr/>
-            <ul class="fa-ul">
-              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>5 Users</strong></li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>50GB Storage</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Free Subdomain</li>
-              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status
+            <ul className="fa-ul">
+              <li><span className="fa-li"><i className="fas fa-check"></i></span><strong>5 Users</strong></li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>50GB Storage</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Unlimited Public Projects</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Community Access</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Unlimited Private Projects</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Dedicated Phone Support</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Free Subdomain</li>
+              <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>Monthly Status
                 Reports</li>
             </ul>
-            <div class="d-grid">
-              <a onClick={()=>{handleCartItems(PLUS)}} class="btn btn-primary text-uppercase">Add to cart</a>
+            <div className="d-grid">
+              <Button onClick={()=>{handleCartItems(PLUS)}} className="btn btn-primary text-uppercase">Add to cart</Button>
             </div>
           </div>
         </div>
       </div>
       {/* <!-- Pro Tier --> */}
-      <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title text-muted text-uppercase text-center">Pro</h5>
-            <h6 class="card-price text-center">$49<span class="period">/month</span></h6>
+      <div className="col-lg-4">
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title text-muted text-uppercase text-center">Pro</h5>
+            <h6 className="card-price text-center">$49<span className="period">/month</span></h6>
             <hr/>
-            <ul class="fa-ul">
-              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited Users</strong>
+            <ul className="fa-ul">
+              <li><span className="fa-li"><i className="fas fa-check"></i></span><strong>Unlimited Users</strong>
               </li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>150GB Storage</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited</strong> Free
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>150GB Storage</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Unlimited Public Projects</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Community Access</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Unlimited Private Projects</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Dedicated Phone Support</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span><strong>Unlimited</strong> Free
                 Subdomains</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Monthly Status Reports</li>
+              <li><span className="fa-li"><i className="fas fa-check"></i></span>Monthly Status Reports</li>
             </ul>
-            <div class="d-grid">
-              <a onClick={()=>{handleCartItems(PRO)}} class="btn btn-primary text-uppercase">Add to cart</a>
+            <div className="d-grid">
+              <Button onClick={()=>{handleCartItems(PRO)}} className="btn btn-primary text-uppercase">Add to cart</Button>
             </div>
           </div>
         </div>
